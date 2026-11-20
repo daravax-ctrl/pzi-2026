@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        const knjige =
+        [
+            {
+                "autor" : "J.R.R. Tolkien",
+                "naslov" : "Prstenova družina",
+                "izdavac" : "Lumen izdavaštvo", 
+                "godina_izd" : "2018" 
+            },
+            {
+                "autor" : "Ransom Riggs",
+                "naslov" : "Dom gospođice Peregrine za čudnovatu djecu",
+                "izdavač" : "Lumen izdavaštvo",
+                "godina_izd" : "2012"
+            },
+            {
+                "autor" : "Ursula Poznanski",
+                "naslov" : "Bog podzemlja",
+                "izdavač" : "Znanje",
+                "godina_izd" : "2014"
+            },
+        ]
+        
+        function prikaziKnjige()
+        {
+            let elem=document.getElementById("sveknjige");
+            elem.innerHTML=""
+
+            for(var i= 0; i<knjige.length;i++)
+            {
+                elem.innerHTML+= "<h4>" +knjige[i].naslov+ "</h4>"
+                elem.innerHTML+= "<div>" +knjige[i].autor+ "</div>"
+                elem.innerHTML+= "<div>" +knjige[i].izdavac+ "</div>"
+                elem.innerHTML+= "<div>" +knjige[i].godina_izd+ "</div>"
+            }
+        }
+    </script>
+
+    <script>
+        const clanovi=
+        [
+            {
+                "ime" : "Ivan",
+                "prezime" : "Ivanić",
+                "email" : "iivanic@gmail.com",
+                "godina_upisa" : "2020"
+            },
+            {
+                "ime" : "Filip",
+                "prezime" : "Filipović",
+                "email" : "ffilipovic@gmail.com",
+                "godina_upisa": "2023"
+            },
+            {
+                "ime" : "Marko",
+                "prezime" : "Marković",
+                "email" : "mmarkovic@gmail.com",
+                "godina_upisa" : "2025"
+            },
+        ]
+        function prikaziClanove()
+        {
+            for(var i=0; i<clanovi.length;i++)
+            {
+                document.write("<h4>" +clanovi[i].ime+ "</h4>")
+                document.write("<div>" +clanovi[i].prezime+ "</div>")
+                document.write("<div>" +clanovi[i].email+ "</div>")
+                document.write("<div>" +clanovi[i].godina_upisa+ "</div>") 
+            }
+        }
+    </script>
+
+    <script>
+        function spremiKnjigu()
+        {
+            let autor= document.getElementById("autor").value;
+            let naslov= document.getElementById("naslov").value;
+            let izdavac= document.getElementById("izdavac").value;
+            let god_izd= document.getElementById("godina_izd").value;
+
+            console.log(autor);
+            knjige.push({
+                "autor": autor,
+                "naslov":naslov,
+                "izdavac":izdavac,
+                "godina_izd":god_izd
+            })
+            prikaziKnjige()
+        }
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <script>
+            knjige.push
+            ({
+                "autor" : "Josip Antić",
+                "naslov" : "Memento Mare",
+                "izdavač" : "V.B.Z.",
+                "godina_izd" : "2026"
+            })
+        </script>
+    </div>
+
+    <div>
+        <p id="sveknjige"></p>
+        <script>
+            prikaziKnjige();
+        </script>
+    </div>
+
+    
+
+    <div>
+        <script>
+            prikaziClanove();
+        </script>
+    </div>
+
+    <p>
+        Autor: <input type="text" id="autor">
+    </p>
+    <p>
+        Naslov: <input type="text" id="naslov">
+    </p>
+    <p>
+        Izdavač:<input type="text" id="izdavac">
+    </p>
+    <p>
+        Godina izdanja:<input type="text" id="godina_izd">
+    </p>
+    <p>
+        <button onclick="spremiKnjigu()">Spremi</button>
+    </p>
+
+
+</body>
